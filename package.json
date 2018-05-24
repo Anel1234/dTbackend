@@ -4,6 +4,7 @@
   "description": "mean test",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
