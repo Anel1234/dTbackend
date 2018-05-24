@@ -1,0 +1,22 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "mean test",
+  "main": "server.js",
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.5.1",
+    "lite-server": "^2.3.0",
+    "method-override": "^2.0.2",
+    "mongoose": "^4.4.20",
+    "nodemon": "^1.17.4",
+    "npm": "^6.0.0"
+  }
+}
