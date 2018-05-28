@@ -1,27 +1,52 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var mongodb = require("mongodb");
+const pg = require('pg');
+var ObjectID = mongodb.ObjectID;
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
 const route = require('./routes/route');
 
-var db = require('./config/db.js');
+
+
+var db;
+
 
 var port = process.env.port || 8080;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
 
-mongoose.connection.on('connected',()=>{
-    console.log('Connected to MongoDB at port 27017')
-});
+/*
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/local", function (err, client) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
-mongoose.connection.on('error',(err)=>{
-    console.log(err)
-});
+  // Save database object from the callback for reuse.
+  db = client.db();
+  console.log("Database connection ready");
 
-mongoose.connect('mongodb://localhost:27017/local');
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+});
+*/
+
+// mongoose.connection.on('connected',()=>{
+//     console.log('Connected to MongoDB at port 27017')
+// });
+
+// mongoose.connection.on('error',(err)=>{
+//     console.log(err)
+// });
+
+// mongoose.connect('mongodb://localhost:27017/local');
 
 // function(err){
 //     if(err){

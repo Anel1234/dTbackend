@@ -11,9 +11,14 @@
 
 var express = require('express');
 var router = express.Router();
+const pg = require('pg')
+var connectionString = "postgres://mlervdnnzjgysf:175ad3c43ad407bd0e0d18f8fc49da1d4466163f60394d518590a50eb3c36289@ec2-75-101-142-91.compute-1.amazonaws.com:5432/d43ehnoshe1rb0?ssl=true"
+var client = new pg.Client(connectionString);
+client.connect();
 var Users = require('../app/models/users');
 var Image = require('../app/models/images');
 var Notifications = require('../app/models/notifications');
+var db = require('../queries');
 var ObjectId = require('mongodb').ObjectID;
 
 // router.get('*', (req, res)=>{
@@ -23,6 +28,8 @@ var ObjectId = require('mongodb').ObjectID;
 // router.get('/users', (req, res, next)=>{
 //    res.send('routetested');
 // });
+
+router.get('/users', db.getUsers);
 
 router.get('/users', function(req, res) {
             // use mongoose to get all users in the database
